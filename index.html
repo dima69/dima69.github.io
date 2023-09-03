@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+        let EXAMPLE_CONFIG = {
+            // document.documentElement.clientWidth and document.documentElement.clientHeight
+            // both values are 0 if you "Open in background"
+            // however it is fine if you "Open in new Tab"
+            CLIENT_WIDTH: document.documentElement.clientWidth,
+            CLIENT_HEIGHT: document.documentElement.clientHeight,
+        }
+        const w = document.createTextNode(`CLIENT_WIDTH: ${EXAMPLE_CONFIG.CLIENT_WIDTH} `)
+        const h = document.createTextNode(`CLIENT_HEIGHT: ${EXAMPLE_CONFIG.CLIENT_HEIGHT} `)
+        document.documentElement.append(w, h);
+    </script>
+</head>
+<body>
+    <a href="main.html" rel="noopener" target="_blank" >! open this link in background !</a>
+    <br /><br />
+    initial width: <input type="text" id="initial_w">
+    <br />
+    initial height:<input type="text" id="initial_h">
+    <br /><br />
+    <button type="button" onclick="getValuesFromExampleConfig()">Get width and height from EXAMPLE_CONFIG</button>
+    <br />
+    config width: <input type="text" id="config_w">
+    <br />
+    config height: <input type="text" id="config_h">
+    </label>
+    <br />
+    <br />
+    <button type="button" onclick="calcWidthHeight()">Calculate width and height</button> # get width and height from document.documentElement
+    <br />
+    calculated width: <input type="text" id="calc_w">
+    <br />
+    calculated height: <input type="text" id="calc_h">
+
+    <script type="text/javascript">
+        document.getElementById('initial_w').value = EXAMPLE_CONFIG.CLIENT_WIDTH;
+        document.getElementById('initial_h').value = EXAMPLE_CONFIG.CLIENT_HEIGHT;
+
+        function calcWidthHeight() {
+            document.getElementById('calc_w').value = document.documentElement.clientWidth;
+            document.getElementById('calc_h').value = document.documentElement.clientHeight;
+        }
+
+        function getValuesFromExampleConfig() {
+            document.getElementById('config_w').value = EXAMPLE_CONFIG.CLIENT_WIDTH;
+            document.getElementById('config_h').value = EXAMPLE_CONFIG.CLIENT_HEIGHT;
+        }
+</script>
+</body>
+</html>
